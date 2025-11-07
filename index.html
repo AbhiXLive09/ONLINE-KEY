@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ABHISHEEK X MODS — Generator</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --accent:#00f0ff;
+  --accent2:#00f0c6;
+  --accent3:#00b7ff;
+  --bg:#020518;
+  --card:#021122;
+  --spin:1.8s;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:radial-gradient(circle at top,#03102b,#010313);
+  color:#d9f8ff;font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+}
+.container{max-width:980px;margin:auto;padding:17px}
+
+#accessScreen{
+  position:fixed;inset:0;background:#020414;
+  display:flex;flex-direction:column;justify-content:center;align-items:center;
+  z-index:10000;transition:.6s;cursor:pointer;
+}
+#accessScreen img{
+  width:240px;height:240px;object-fit:contain;
+  filter:drop-shadow(0 0 32px #00eaffaa);
+  animation:glow 2s ease-in-out infinite alternate;
+  margin-bottom:15px;
+}
+@keyframes glow{from{filter:drop-shadow(0 0 10px #0030ff)}to{filter:drop-shadow(0 0 38px #00eaff)}}
+#accessScreen h1{
+  font-family:'Orbitron';margin-top:28px;font-size:34px;letter-spacing:6px;color:var(--accent);text-shadow:0 0 25px #00eaff;text-align:center;
+}
+#accessScreen p{margin-top:10px;color:#9ddfff}
+
+.header{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;margin-top:12px
+}
+.header img{
+  width:120px;filter:drop-shadow(0 0 25px var(--accent3));margin-bottom:10px;
+}
+.header h1{
+  font-family:'Orbitron';
+  font-size:32px;
+  background:linear-gradient(90deg,#00f0ff 0%,#00b7ff 50%,#00f0c6 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  letter-spacing:3px;
+  text-shadow:0 0 25px rgba(0,255,255,0.6);
+  animation:shineGlow 4s ease-in-out infinite;
+  text-align:center;
+}
+@keyframes shineGlow{
+  0%,100%{filter:drop-shadow(0 0 20px #00eaff);}
+  50%{filter:drop-shadow(0 0 40px #00f0ff);}
+}
+
+.hero{text-align:center;padding:35px 10px}
+.hero .title{font-family:'Orbitron';font-size:34px;color:var(--accent);letter-spacing:3px;margin-bottom:8px}
+
+.panel{background:rgba(255,255,255,0.04);border:1px solid rgba(0,255,255,0.2);padding:16px;border-radius:12px;margin:15px 0;backdrop-filter:blur(6px);box-shadow:0 0 25px #003b52;}
+.panel .heading{font-family:'Orbitron';color:var(--accent);margin-bottom:6px;}
+
+.loader-wrap{margin:10px 0;text-align:center;opacity:0;transition:.4s}
+.ring{width:90px;height:90px;border-radius:50%;border:6px solid rgba(255,255,255,0.06);margin:auto;display:flex;justify-content:center;align-items:center}
+.arc{width:60px;height:60px;border-radius:50%;border:6px solid transparent;border-top-color:var(--accent);animation:spin var(--spin) linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.controls{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;justify-content:center}
+button{border-radius:8px;padding:12px 18px;border:none;font-weight:600;background:linear-gradient(90deg,var(--accent2),var(--accent));color:#021018}
+
+.section-box{background:var(--card);border:1px solid rgba(0,255,255,0.25);margin:18px 0;padding:18px;border-radius:13px;box-shadow:0 0 25px rgba(0,255,255,0.15);}
+.section-box h2{font-family:'Orbitron';color:var(--accent);font-size:18px;margin-bottom:10px;}
+.section-box p{color:#d8ffff;line-height:1.55}
+
+.key-box{display:none;margin-top:16px;background:linear-gradient(180deg,rgba(0,255,255,0.04),rgba(0,0,0,0.02));padding:14px;border-radius:12px;border:1px solid rgba(0,255,255,0.18);text-align:center}
+.key-code{font-family:'Orbitron';font-size:20px;letter-spacing:2px;padding:8px 12px;background:rgba(0,0,0,0.18);display:inline-block;border-radius:8px}
+.copy-btn{margin-left:8px;padding:8px 10px;border-radius:8px;border:none;font-weight:700;background:linear-gradient(90deg,var(--accent2),var(--accent));color:#021018}
+
+details{background:#000814;border-radius:8px;border:1px solid rgba(0,255,255,0.25);padding:12px;margin:10px 0}
+summary{cursor:pointer;color:var(--accent);font-weight:600}
+.toast{position:fixed;right:18px;bottom:18px;background:rgba(0,0,0,0.6);padding:10px 14px;border-radius:10px;border:1px solid rgba(0,255,255,0.14);box-shadow:0 6px 22px rgba(0,0,0,0.6);display:none}
+html,body{height:auto!important;min-height:100vh!important;overflow-y:auto!important;}
+</style>
+</head>
+<body>
+<div id="accessScreen">
+  <img src="mkop.png">
+  <h1>ACCESS WEBSITE</h1>
+  <p>TAP ON SCREEN TO OPEN 👐 continue</p>
+</div>
+
+<div class="container" id="main" style="display:none;">
+<header class="header">
+  <img src="mkop.png">
+  <h1>ABHISHEEK X MODS</h1>
+</header>
+
+<section class="hero">
+  <div class="title">ABHISHEK PREMIUM GENERATE KEY</div>
+  <p>Tap the button below to generate a fresh access key.</p>
+  <div class="loader-wrap" id="loaderWrap"><div class="ring"><div class="arc" id="arc"></div></div></div>
+</section>
+
+<div class="panel"><div class="heading">SYSTEM.LOG</div><pre id="log">// Ready</pre></div>
+<div class="controls"><button id="generateBtn">GENERATE ACCESS KEY</button></div>
+
+<div class="key-box" id="keyBox">
+  <div><span class="key-code" id="keyCode">ABHISHEEK-156HC-BJFD</span><button class="copy-btn" id="copyBtn">COPY</button></div>
+  <p style="margin-top:10px;color:#9fefff;font-size:13px">Key generated locally — use where required.</p>
+</div>
+
+<div class="section-box"><h2>ACCESS PROTOCOL V2.0 🚀</h2><p>[01] Press <b>Generate</b> → Key appears immediately.<br>[02] Copy & use the key where required.<br>[03] This UI keeps the original design and colors.</p></div>
+<div class="section-box"><h2>MISSION DEBRIEF 📝</h2><p>The FF Advance Server allows users to test upcoming features.</p></div>
+<div class="section-box"><h2>FAQS ❓</h2><details><summary>What is the FF Advance Server?</summary><p>It is a testing server.</p></details><details><summary>Why isn't my key working?</summary><p>Maybe expired or reused.</p></details></div>
+</div>
+<div class="toast" id="toast">Copied to clipboard</div>
+
+<script>
+window.onload = () => {
+  const accessScreen = document.getElementById('accessScreen');
+  const main = document.getElementById('main');
+  accessScreen.onclick = () => {
+    accessScreen.style.opacity = '0';
+    setTimeout(() => {
+      accessScreen.style.display = 'none';
+      accessScreen.style.pointerEvents = 'none';
+      main.style.display = 'block';
+    }, 500);
+  };
+
+  const logEl=document.getElementById('log');
+  const loader=document.getElementById('loaderWrap');
+  const btn=document.getElementById('generateBtn');
+  const keyBox=document.getElementById('keyBox');
+  const keyCodeEl=document.getElementById('keyCode');
+  const copyBtn=document.getElementById('copyBtn');
+  const toast=document.getElementById('toast');
+
+  function log(t){logEl.textContent=t;}
+  function showToast(msg){toast.textContent=msg||'Copied to clipboard';toast.style.display='block';setTimeout(()=>{toast.style.display='none';},1800);}
+
+  btn.onclick = () => {
+    btn.disabled=true;loader.style.opacity=1;log('// Generating key...');
+    setTimeout(()=>{
+      const key='ABHISHEEK-156HC-BJFD';
+      keyCodeEl.textContent=key;keyBox.style.display='block';loader.style.opacity=0;log('// Key generated — ready');
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(key).then(()=>{showToast('Key copied to clipboard');});}
+      btn.disabled=false;
+    },800);
+  };
+
+  copyBtn.onclick = () => {
+    const key = keyCodeEl.textContent;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(key).then(()=>{showToast('Copied to clipboard');});
+    }
+  };
+};
+</script>
+</body>
+</html>
