@@ -1,0 +1,6 @@
+pyrogram
+TgCrypto
+pytgcalls
+python-dotenv
+youtube-search-python
+yt-dlp
